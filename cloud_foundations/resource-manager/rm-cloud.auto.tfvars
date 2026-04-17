@@ -1,4 +1,4 @@
-resources_root_folder_id = "375233610952"
+resources_root_folder_id = "373474332065"
 
 billing_account = "01B87F-2B15CA-A24E45"
 

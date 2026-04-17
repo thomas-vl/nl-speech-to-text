@@ -3,7 +3,7 @@ ai_resources_root = {
     folder_name = "speech-to-text"
     projects = {
       "pj-speech-text-dev" = {
-        project_id = "pj-speech-text-dev"
+        project_id = "pj-speech-text-dev-a"
         namespace  = "pj"
         apis = [
           "aiplatform.googleapis.com",
@@ -24,7 +24,7 @@ ai_resources_root = {
         ]
       }
       "pj-speech-text-uat" = {
-        project_id = "pj-speech-text-uat"
+        project_id = "pj-speech-text-uat-a"
         namespace  = "pj"
         apis = [
           "aiplatform.googleapis.com",
@@ -45,7 +45,7 @@ ai_resources_root = {
         ]
       }
       "pj-speech-text-prod" = {
-        project_id = "pj-speech-text-prod"
+        project_id = "pj-speech-text-prod-a"
         namespace  = "pj"
         apis = [
           "aiplatform.googleapis.com",

@@ -1,14 +1,14 @@
 provider "google" {
-  impersonate_service_account = "sa-root-tf-vpc@pj-terra-speech-text-main.iam.gserviceaccount.com"
+  impersonate_service_account = "sa-root-tf-vpc@pj-speech-text-state.iam.gserviceaccount.com"
   user_project_override       = true
-  billing_project             = "pj-terra-speech-text-main"
+  billing_project             = "pj-speech-text-state"
 }
 
 terraform {
   backend "gcs" {
-    bucket                      = "gcs-tf-state-vpc-pj-terra-speech-text-main"
+    bucket                      = "gcs-tf-state-rm-pj-speech-text-state"
     prefix                      = "terraform/state/vpc"
-    impersonate_service_account = "sa-root-tf-vpc@pj-terra-speech-text-main.iam.gserviceaccount.com"
+    impersonate_service_account = "sa-root-tf-vpc@pj-speech-text-state.iam.gserviceaccount.com"
   }
 }
 

@@ -1,7 +1,22 @@
+import {
+  to = module.basic.module.projects_in_folder_root["speech-to-text"].google_project.project["pj-speech-text-dev"]
+  id = "pj-speech-text-dev-a"
+}
+
+import {
+  to = module.basic.module.projects_in_folder_root["speech-to-text"].google_project.project["pj-speech-text-uat"]
+  id = "pj-speech-text-uat-a"
+}
+
+import {
+  to = module.basic.module.projects_in_folder_root["speech-to-text"].google_project.project["pj-speech-text-prod"]
+  id = "pj-speech-text-prod-a"
+}
+
 provider "google" {
-  impersonate_service_account = "sa-root-tf-rm@pj-terra-speech-text-main.iam.gserviceaccount.com"
+  impersonate_service_account = "sa-root-tf-rm@pj-speech-text-state.iam.gserviceaccount.com"
   user_project_override       = true
-  billing_project             = "pj-terra-speech-text-main"
+  billing_project             = "pj-speech-text-state"
   batching {
     send_after      = "1s"
     enable_batching = true
@@ -10,9 +25,9 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket                      = "gcs-tf-state-rm-pj-terra-speech-text-main"
+    bucket                      = "gcs-tf-state-rm-pj-speech-text-state"
     prefix                      = "terraform/state/rm"
-    impersonate_service_account = "sa-root-tf-rm@pj-terra-speech-text-main.iam.gserviceaccount.com"
+    impersonate_service_account = "sa-root-tf-rm@pj-speech-text-state.iam.gserviceaccount.com"
   }
 }
 

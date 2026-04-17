@@ -1,56 +1,56 @@
 artifact_registry_repositories = {
   pipeline-containers = {
-    description = "Repository containing pipeline Docker containers."
-    format = "DOCKER"
-    location = "europe-west1"
+    description    = "Repository containing pipeline Docker containers."
+    format         = "DOCKER"
+    location       = "europe-west1"
     role_group_map = {}
   }
   pipeline-packages = {
-    description = "Repository containing pipeline Python packages."
-    format = "PYTHON"
-    location = "europe-west1"
+    description    = "Repository containing pipeline Python packages."
+    format         = "PYTHON"
+    location       = "europe-west1"
     role_group_map = {}
   }
   pipeline-templates = {
-    description = "Repository containing Kubeflow Pipelines templates."
-    format = "KFP"
-    location = "europe-west1"
+    description    = "Repository containing Kubeflow Pipelines templates."
+    format         = "KFP"
+    location       = "europe-west1"
     role_group_map = {}
   }
 }
 branch_regex = ".*"
 buckets = {
   datasets = {
-    name = "pj-speech-text-dev-datasets"
+    name   = "pj-speech-text-dev-datasets"
     region = "europe-west1"
   }
   models = {
-    name = "pj-speech-text-dev-models"
+    name   = "pj-speech-text-dev-models"
     region = "europe-west1"
   }
   frontend = {
-    name = "pj-speech-text-dev-genai-frontend"
+    name   = "pj-speech-text-dev-genai-frontend"
     region = "europe-west1"
   }
   audio_uploads = {
-    name = "pj-speech-text-dev-audio-uploads"
+    name   = "pj-speech-text-dev-audio-uploads"
     region = "europe-west1"
     cors = {
       origin = [
         "http://localhost:3000",
-        "http://localhost:3001", 
+        "http://localhost:3001",
         "https://speech-frontend-zkeanislmq-ew.a.run.app",
         "https://speech-frontend-275052050630.europe-west1.run.app"
       ]
       method = [
         "GET",
-        "POST", 
+        "POST",
         "PUT",
         "OPTIONS"
       ]
       response_header = [
         "Content-Type",
-        "Content-Length", 
+        "Content-Length",
         "x-goog-resumable",
         "x-goog-content-length-range",
         "Authorization"
@@ -59,30 +59,30 @@ buckets = {
     }
   }
   transcripts = {
-    name = "pj-speech-text-dev-transcripts"
+    name   = "pj-speech-text-dev-transcripts"
     region = "europe-west1"
   }
 }
-project_id = "pj-speech-text-dev"
-repo_name = "nl-speech-to-text"
-repo_owner = "JoshuaDevoteam"
-region = "europe-west1"
+project_id = "pj-speech-text-dev-a"
+repo_name  = "nl-speech-to-text"
+repo_owner = "thomas-vl"
+region     = "europe-west1"
 service_accounts = {
   terraform = {
     create = false
-    email = "sa-terraform@pj-speech-text-dev.iam.gserviceaccount.com"
+    email  = "sa-terraform@pj-speech-text-dev-a.iam.gserviceaccount.com"
   }
   cloudbuild = {
     create = false
-    email = "sa-cloudbuild@pj-speech-text-dev.iam.gserviceaccount.com"
+    email  = "sa-cloudbuild@pj-speech-text-dev-a.iam.gserviceaccount.com"
   }
   sa-frontend-dev = {
     create = false
-    email = "sa-frontend-dev@pj-speech-text-dev.iam.gserviceaccount.com"
+    email  = "sa-frontend-dev@pj-speech-text-dev-a.iam.gserviceaccount.com"
   }
   sa-backend-dev = {
     create = false
-    email = "sa-backend-dev@pj-speech-text-dev.iam.gserviceaccount.com"
+    email  = "sa-backend-dev@pj-speech-text-dev-a.iam.gserviceaccount.com"
   }
 }
 cloud_build = {
@@ -107,10 +107,10 @@ cloud_build = {
 }
 cloud_run = {
   frontend = {
-    location = "europe-west1"
+    location        = "europe-west1"
     service_account = "sa-frontend-dev"
-    cpu = "1"
-    memory = "2Gi"
+    cpu             = "1"
+    memory          = "2Gi"
     sa = {
       sa-frontend-dev = [
         "roles/run.invoker"
@@ -118,10 +118,10 @@ cloud_run = {
     }
   }
   backend = {
-    location = "europe-west1"
+    location        = "europe-west1"
     service_account = "sa-backend-dev"
-    cpu = "2"
-    memory = "4Gi"
+    cpu             = "2"
+    memory          = "4Gi"
     sa = {
       sa-backend-dev = [
         "roles/run.invoker"

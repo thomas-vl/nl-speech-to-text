@@ -13,7 +13,7 @@ provider "google-beta" {
 module "buckets" {
   for_each = var.buckets
 
-  source = "/Users/joshuavink/Devoteam/speech-to-text/cloud_foundations/modules/cloud-storage"
+  source = "/Users/thomas/Documents/Devoteam/nl-speech-to-text/cloud_foundations/modules/cloud-storage"
 
   project_id                  = var.project_id
   name                        = each.value.name
@@ -27,7 +27,7 @@ module "buckets" {
 module "cloud_build" {
   for_each = local.cloud_build
   # tflint-ignore: terraform_module_pinned_source
-  source = "/Users/joshuavink/Devoteam/speech-to-text/cloud_foundations/modules/cloud-build"
+  source = "/Users/thomas/Documents/Devoteam/nl-speech-to-text/cloud_foundations/modules/cloud-build"
 
   project         = var.project_id
   trigger_name    = each.key
@@ -45,7 +45,7 @@ module "cloud_build" {
 module "run" {
   for_each = local.cloud_run
 
-  source = "/Users/joshuavink/Devoteam/speech-to-text/cloud_foundations/modules/cloud-run"
+  source = "/Users/thomas/Documents/Devoteam/nl-speech-to-text/cloud_foundations/modules/cloud-run"
 
   project                 = var.project_id
   name                    = each.key
@@ -68,7 +68,7 @@ module "run" {
 module "artifact_repository" {
   for_each = local.updated_artifact_registry_maps
 
-  source = "/Users/joshuavink/Devoteam/speech-to-text/cloud_foundations/modules/artifact-registry"
+  source = "/Users/thomas/Documents/Devoteam/nl-speech-to-text/cloud_foundations/modules/artifact-registry"
 
   project_id = var.project_id
 
